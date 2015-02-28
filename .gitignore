@@ -1,5 +1,6 @@
 # Generated files
 build
+app/styles/css
 app/templates/js
 
 # Dependencies

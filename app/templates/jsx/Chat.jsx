@@ -2,18 +2,18 @@ var Chat = React.createClass({
 	render: function() {
 		return (
 			<div className="row">
-				<nav className="cell sidebar left">
+				<div className="cell sidebar left">
 					<Servers />
-				</nav>
+				</div>
 				<div className="cell">
 					<div className="inner">
 						<Messages />
 						<MessageForm />
 					</div>
 				</div>
-				<nav className="cell sidebar right">
+				<div className="cell sidebar right">
 					<Users />
-				</nav>
+				</div>
 			</div>
 		);
 	}

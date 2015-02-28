@@ -1,0 +1,72 @@
+.sidebar {
+    width: 200px;
+    &.left {
+        text-align: left;
+        >ul>li {
+            a {
+                padding-left: 3px;
+            }
+            >ul>li>a {
+                padding-left: 15px;
+            }
+        }
+        .accordion.wrapped {
+            transform: rotate(-90deg);
+            transition: transform 0.5s;
+        }
+    }
+    &.right {
+        text-align: right;
+        >ul>li {
+            a {
+                padding-right: 3px;
+            }
+            >ul>li>a {
+                padding-right: 15px;
+            }
+        }
+        .accordion.wrapped {
+            transform: rotate(90deg);
+            transition: transform 0.5s;
+        }
+    }
+    a {
+        cursor: default;
+        display: block;
+        line-height: 30px;
+        min-height: 30px;
+        text-decoration: none;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    >ul {
+        background-color: @main-color-900;
+        height: 100%;
+        overflow-y: auto;
+        >li {
+            >a {
+                background-color: @main-color-900;
+                color: @text-light-color;
+            }
+            >ul>li>a {
+                background-color: @main-color-300;
+                color: @text-dark-color;
+                padding-right: 15px;
+                transition: background-color 0.5s;
+                &:hover {
+                    background-color: @main-color-400;
+                    transition: background-color 0.5s;
+                }
+            }
+        }
+    }
+    .accordion {
+        cursor: pointer;
+        margin: 3px;
+        transform: rotate(0deg);
+        transition: transform 0.5s;
+    }
+}

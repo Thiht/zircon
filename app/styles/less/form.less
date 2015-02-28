@@ -1,0 +1,46 @@
+#form {
+    min-height: 75px;
+    padding: 5px 0;
+    position: relative;
+    button {
+        background: none;
+        border: 1px solid @main-color-300;
+        &[type=submit] {
+            border-radius: 0 5px 5px 0;
+            height: 50px;
+            position: absolute;
+            width: 60px;
+        }
+    }
+    textarea {
+        border: 1px solid @main-color-300;
+        border-radius: 5px 0 0 5px;
+        border-right: 0;
+        box-sizing: border-box;
+        font: inherit;
+        height: 50px;
+        padding: 7px;
+        resize: none;
+        width: calc(~"100% - 60px");
+    }
+    .toolbar {
+        display: inline-block;
+        left: 5px;
+        position: relative;
+        vertical-align: middle;
+        button {
+            border-bottom: 0;
+            float: left;
+            position: relative;
+            &:first-child {
+                border-radius: 5px 0 0 0;
+            }
+            &:not(:first-child) {
+                border-left: 0;
+            }
+            &:last-child {
+                border-radius: 0 5px 0 0;
+            }
+        }
+    }
+}

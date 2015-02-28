@@ -27,7 +27,7 @@ var Messages = React.createClass({
 		});
 	},
 	componentDidUpdate: function(prevProps, prevState) {
-		// Scroll to the bottom of .content
+		// Scroll to the bottom of #messages
 		this.getDOMNode().scrollTop = this.getDOMNode().scrollHeight;
 	},
 	render: function() {
@@ -38,7 +38,7 @@ var Messages = React.createClass({
 		});
 
 		return (
-			<div className="content">
+			<div id="messages">
 				{messages}
 			</div>
 		);

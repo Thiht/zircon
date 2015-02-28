@@ -16,7 +16,7 @@ var MessageForm = React.createClass({
 	},
 	render: function() {
 		return (
-			<div className="form">
+			<div id="form">
 				<form action="#" onSubmit={this.handleSubmit}>
 					<div className="toolbar">
 						<button title="Nickname" disabled><i className="fa fa-user"></i></button>
