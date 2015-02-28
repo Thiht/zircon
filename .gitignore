@@ -1,0 +1,14 @@
+# Generated files
+build
+app/templates/js
+
+# Dependencies
+# npm
+node_modules
+# bower
+app/components
+# node-webkit
+cache
+
+# Project files
+*.sublime-*
