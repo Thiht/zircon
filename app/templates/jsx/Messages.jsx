@@ -1,5 +1,3 @@
-// TODO
-// Add a .content.scrollTop = .content.scrollHeight; after the render() is called
 var Messages = React.createClass({
 	// User-defined methods
 	addMessage: function(from, text) {
