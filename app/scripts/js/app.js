@@ -6,13 +6,13 @@ var App = {};
 
 	// Dev shortcuts
 	var shortcut = new gui.Shortcut({
-		key : 'Ctrl+Shift+J',
+		key: 'Ctrl+Shift+J',
 
-		active : function() {
+		active: function() {
 			win.showDevTools();
 		},
 
-		failed : function(msg) {
+		failed: function(msg) {
 			console.log(msg);
 		}
 	});

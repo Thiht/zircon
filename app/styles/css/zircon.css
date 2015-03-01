@@ -6,9 +6,15 @@ body {
   margin: 0;
 }
 html,
-body {
+body,
+#main {
   height: 100%;
   overflow: hidden;
+}
+#controls {
+  -webkit-app-region: drag;
+  background: #212121;
+  height: 30px;
 }
 ::-webkit-scrollbar {
   height: 7px;
@@ -31,7 +37,7 @@ body {
 }
 .table {
   display: table;
-  height: 100%;
+  height: calc(100% - 30px);
   width: 100%;
 }
 .table .row {
