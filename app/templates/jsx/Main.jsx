@@ -15,20 +15,19 @@ var Main = React.createClass({
 		};
 	},
 	componentDidMount: function() {
-		var self = this;
 
 		// Messages
 		App.servers[0].addListener('message', function(from, to, text, message) {
-			self.addMessage(from, text);
-		});
+			this.addMessage(from, text);
+		}.bind(this));
 
 		App.servers[0].addListener('selfMessage', function(target, toSend) {
-			self.addMessage(App.servers[0].nick, toSend);
-		});
+			this.addMessage(App.servers[0].nick, toSend);
+		}.bind(this));
 
 		// Users
 		App.servers[0].addListener('names#meepmeep', function(users) {
-			self.setState({
+			this.setState({
 				users: Object.keys(users).map(function(name) {
 					return {
 						name: name,
@@ -36,16 +35,16 @@ var Main = React.createClass({
 					};
 				})
 			});
-		});
+		}.bind(this));
 
 		App.servers[0].addListener('join#meepmeep', function(nick, message) {
-			self.setState({
-				users: self.state.users.concat([{
+			this.setState({
+				users: this.state.users.concat([{
 					name: nick,
 					status: ''
 				}])
 			});
-		});
+		}.bind(this));
 	},
 	render: function() {
 		return (
