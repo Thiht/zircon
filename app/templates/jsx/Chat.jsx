@@ -8,7 +8,7 @@ var Chat = React.createClass({
 					</div>
 					<div className="cell">
 						<div className="inner">
-							<Messages />
+							<Messages messages={this.props.data.messages} />
 							<MessageForm />
 						</div>
 					</div>
