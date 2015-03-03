@@ -14,8 +14,6 @@
 		"open-sans-fontface": "~1.2.1"
 	},
 	"dependenciesIgnore": {
-		"react": [
-			"**/!(react.js)"
-		]
+		
 	}
 }

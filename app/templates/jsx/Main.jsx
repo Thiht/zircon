@@ -1,13 +1,4 @@
 var Main = React.createClass({
-	addMessage: function(author, content) {
-		this.setState({
-			messages: this.state.messages.concat([{
-				author: author,
-				content: content,
-				timestamp: Date.now()
-			}])
-		});
-	},
 	getInitialState: function() {
 		return {
 			messages: [],
@@ -17,6 +8,19 @@ var Main = React.createClass({
 			}],
 			users: []
 		};
+	},
+	addMessage: function(author, content) {
+		var newMessages = React.addons.update(this.state, {
+			messages: {
+				$push: [{
+					author: author,
+					content: content,
+					timestamp: Date.now()
+				}]
+			}
+		});
+
+		this.setState(newMessages);
 	},
 	componentDidMount: function() {
 
@@ -35,32 +39,62 @@ var Main = React.createClass({
 				return;
 			}
 
-			this.state.servers[0].channels.push({
-				name: channel
+			var newChannels = React.addons.update(this.state, {
+				servers: {
+					0: {
+						channels: {
+							$push: [{
+								name: channel
+							}]
+						}
+					}
+				}
 			});
 
-			this.setState();
+			this.setState(newChannels);
 		}.bind(this));
 
 		// Users
 		App.servers[0].addListener('names#meepmeep', function(users) {
-			this.setState({
-				users: Object.keys(users).map(function(name) {
-					return {
-						name: name,
-						status: users[name]
-					};
-				})
+			var newUsers = React.addons.update(this.state, {
+				users: {
+					$set: Object.keys(users).map(function(name) {
+						return {
+							name: name,
+							status: users[name]
+						};
+					})
+				}
 			});
+
+			this.setState(newUsers);
 		}.bind(this));
 
 		App.servers[0].addListener('join#meepmeep', function(nick, message) {
-			this.setState({
-				users: this.state.users.concat([{
-					name: nick,
-					status: ''
-				}])
+			var newUsers = React.addons.update(this.state, {
+				users: {
+					$push: [{
+						name: nick,
+						status: ''
+					}]
+				}
 			});
+
+			this.setState(newUsers);
+		}.bind(this));
+
+		App.servers[0].addListener('part#meepmeep', function(nick, reason, message) {
+			var newUsers = React.addons.update(this.state, {
+				users: {
+					$apply: function(users) {
+						return users.filter(function(user) {
+							return nick != user.name;
+						});
+					}
+				}
+			});
+
+			this.setState(newUsers);
 		}.bind(this));
 	},
 	render: function() {
