@@ -3,6 +3,8 @@ var MessageForm = React.createClass({
 		e.preventDefault();
 
 		var content = this.refs.content.getDOMNode().value.trim();
+		this.refs.content.getDOMNode().value = '';
+
 		if (!content) {
 			return;
 		}
@@ -11,8 +13,6 @@ var MessageForm = React.createClass({
 		// TODO: get the current channel from the parent components
 		// with sth like `this.props.to`
 		App.servers[0].say("#meepmeep", content);
-
-		this.refs.content.getDOMNode().value = '';
 	},
 	render: function() {
 		return (

@@ -6,7 +6,7 @@ var Server = React.createClass({
 					<i className="fa fa-angle-down accordion"></i>
 					{this.props.name}
 				</a>
-				<Channels />
+				<Channels channels={this.props.channels} />
 			</li>
 		);
 	}

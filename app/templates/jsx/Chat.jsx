@@ -4,7 +4,7 @@ var Chat = React.createClass({
 			<div className="table">
 				<div className="row">
 					<div className="cell sidebar left">
-						<Servers />
+						<Servers servers={this.props.data.servers} />
 					</div>
 					<div className="cell">
 						<div className="inner">

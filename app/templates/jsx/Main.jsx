@@ -11,6 +11,10 @@ var Main = React.createClass({
 	getInitialState: function() {
 		return {
 			messages: [],
+			servers: [{
+				name: "freenode",
+				channels: []
+			}],
 			users: []
 		};
 	},
@@ -23,6 +27,19 @@ var Main = React.createClass({
 
 		App.servers[0].addListener('selfMessage', function(target, toSend) {
 			this.addMessage(App.servers[0].nick, toSend);
+		}.bind(this));
+
+		// Channels
+		App.servers[0].addListener('join', function(channel, nick, message) {
+			if (nick !== App.servers[0].nick) {
+				return;
+			}
+
+			this.state.servers[0].channels.push({
+				name: channel
+			});
+
+			this.setState();
 		}.bind(this));
 
 		// Users
