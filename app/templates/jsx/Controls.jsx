@@ -1,9 +1,9 @@
 var Controls = React.createClass({
-    render: function() {
-        return (
-            <div id="controls">
-                Zircon
-            </div>
-        );
-    }
+	render: function() {
+		return (
+			<div id="controls">
+				Zircon
+			</div>
+		);
+	}
 });
