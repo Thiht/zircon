@@ -11,11 +11,9 @@ var Channels = React.createClass({
 			}
 
 			self.setState({
-				channels: self.state.channels.concat([
-					{
-						name: channel
-					}
-				])
+				channels: self.state.channels.concat([{
+					name: channel
+				}])
 			});
 		});
 	},

@@ -13,7 +13,7 @@ var Chat = React.createClass({
 						</div>
 					</div>
 					<div className="cell sidebar right">
-						<Users />
+						<Users users={this.props.data.users} />
 					</div>
 				</div>
 			</div>
